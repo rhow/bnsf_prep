@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  spark:
+    image: jupyter/pyspark-notebook:latest
+    container_name: pyspark_local
+    ports:
+      - "8888:8888" # Jupyter Notebook
+      - "4040:4040" # Spark UI (for monitoring job execution)
+    volumes:
+      - ./data:/home/jovyan/work/data # Mount a local 'data' folder
+      - ./notebooks:/home/jovyan/work/notebooks # Mount a local 'notebooks' folder
+    working_dir: /home/jovyan/work
+    environment:
+      # Optional: Adjust Spark memory settings if needed
+      SPARK_DRIVER_MEMORY: 2g
+      SPARK_EXECUTOR_MEMORY: 2g
