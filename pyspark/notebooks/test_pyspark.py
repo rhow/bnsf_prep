@@ -1,6 +1,7 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, avg, max, count
 
+
 class ChargePointsETLJob:
     input_path = '../data/input/electric-chargepoint-analysis-2017-domestics-incomplete-anomalies.csv'
     output_path = '../data/output/chargepoints-2017-analysis'
